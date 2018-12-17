@@ -17,7 +17,8 @@ namespace AmigoLoansDevTest
             sqlite = new SQLiteConnection("Data Source =DevTestDb.db;Version = 3;New=False");
             ConfigTables();
         }
-
+        
+        // Creates the tables if they do not exist
         public void ConfigTables()
         {
             sqlite.Open();
@@ -43,11 +44,16 @@ namespace AmigoLoansDevTest
             sqlite.Close();
         }
 
+
         public string[] SelectQuery()
         {
             sqlite.Open();
-            string stm = "Select * From Rota";
-            string[] results = new string[3];
+            string stm = @"
+            Select Name, Engineers.Id 
+            From Engineers
+            Inner Join Rota on Rota.Engineer_Id = Engineers.Id
+            ";
+            string[] results = new string[2];
 
             using (SQLiteCommand cmd = new SQLiteCommand(stm, sqlite))
             {
@@ -55,9 +61,8 @@ namespace AmigoLoansDevTest
                 {
                     while (rdr.Read())
                     {
-                        results[0] = rdr["Id"].ToString();
-                        results[1] = rdr["Engineer_Id"].ToString();
-                        results[2] = rdr["Shift"].ToString();
+                        results[0] = rdr["Name"].ToString();
+                        results[1] = rdr["Id"].ToString();
 
                     }
                 }

@@ -2,9 +2,24 @@
 @model AmigoLoansDevTest.Pages.IndexModel
 @{
 
-    <h1>Welcome!</h1>
+    <h1>Support Wheel Of Fate</h1>
+    
     <p>
-        @Model.rows
+        This system will select two engineers, at random, to both complete a half day of support each.
     </p>
+
+    <button>Randomly Choose!</button>
+
+    <table>
+    <tr>
+        <th>Id</th>
+        <th>EngId</th>
+        <th>Shift</th>
+    </tr>
+    <tr>
+        <td>@Model.rowsTest[0]</td>
+        <td>@Model.rowsTest[1]</td>
+    </tr>
+        </table>
 
 }

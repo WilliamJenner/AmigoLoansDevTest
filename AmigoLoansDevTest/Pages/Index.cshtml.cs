@@ -25,6 +25,11 @@ namespace AmigoLoansDevTest.Pages
             
         }
 
+        public void OnPost()
+        {
+            
+        }
+
         
     }
 }
