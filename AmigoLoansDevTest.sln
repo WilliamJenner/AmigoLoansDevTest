@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmigoLoansDevTest", "AmigoLoansDevTest\AmigoLoansDevTest.csproj", "{276A8F72-3CB6-4D58-8D5E-44423A3EB062}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "AmigoDb", "AmgioDatabase\AmigoDb.sqlproj", "{B87D0ED6-5791-4ADC-B7BE-2CE8AC181472}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +15,6 @@ Global
 		{276A8F72-3CB6-4D58-8D5E-44423A3EB062}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{276A8F72-3CB6-4D58-8D5E-44423A3EB062}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{276A8F72-3CB6-4D58-8D5E-44423A3EB062}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B87D0ED6-5791-4ADC-B7BE-2CE8AC181472}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B87D0ED6-5791-4ADC-B7BE-2CE8AC181472}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B87D0ED6-5791-4ADC-B7BE-2CE8AC181472}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{B87D0ED6-5791-4ADC-B7BE-2CE8AC181472}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B87D0ED6-5791-4ADC-B7BE-2CE8AC181472}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B87D0ED6-5791-4ADC-B7BE-2CE8AC181472}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
