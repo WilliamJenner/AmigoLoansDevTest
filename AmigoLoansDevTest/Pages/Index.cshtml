@@ -3,23 +3,32 @@
 @{
 
     <h1>Support Wheel Of Fate</h1>
-    
+
     <p>
         This system will select two engineers, at random, to both complete a half day of support each.
     </p>
 
-    <button>Randomly Choose!</button>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Name 2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                @Model.selectTest[0]
+                </td>
+                <td>
+                @Model.selectTest[1]
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
-    <table>
-    <tr>
-        <th>Id</th>
-        <th>EngId</th>
-        <th>Shift</th>
-    </tr>
-    <tr>
-        <td>@Model.rowsTest[0]</td>
-        <td>@Model.rowsTest[1]</td>
-    </tr>
-        </table>
+    <form method="post">
+    <button type="submit">Randomly Select!</button>
+    </form>
 
 }

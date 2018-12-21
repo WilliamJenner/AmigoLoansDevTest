@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
@@ -7,17 +8,18 @@ using System.Threading.Tasks;
 
 namespace AmigoLoansDevTest
 {
-    public class DataClass
+    public class DataAccess
     {
         private SQLiteConnection sqlite;
+        
 
         //constructor
-        public DataClass()
+        public DataAccess()
         {
-            sqlite = new SQLiteConnection("Data Source =DevTestDb.db;Version = 3;New=False");
+            sqlite = new SQLiteConnection("Data Source=DevTestDb.db;Version=3;New=False");
             ConfigTables();
         }
-        
+
         // Creates the tables if they do not exist
         public void ConfigTables()
         {
@@ -45,31 +47,32 @@ namespace AmigoLoansDevTest
         }
 
 
-        public string[] SelectQuery()
+        //This method will take in a query, and expected attributes, and then return each result in a list. 
+        //Then converts to an array due to ease of use.
+        public string[] SelectQuery(string query, string[] attributes)
         {
+            List<string> results = new List<string>();
             sqlite.Open();
-            string stm = @"
-            Select Name, Engineers.Id 
-            From Engineers
-            Inner Join Rota on Rota.Engineer_Id = Engineers.Id
-            ";
-            string[] results = new string[2];
 
-            using (SQLiteCommand cmd = new SQLiteCommand(stm, sqlite))
+            using (SQLiteCommand cmd = new SQLiteCommand(query, sqlite))
             {
                 using (SQLiteDataReader rdr = cmd.ExecuteReader())
                 {
                     while (rdr.Read())
                     {
-                        results[0] = rdr["Name"].ToString();
-                        results[1] = rdr["Id"].ToString();
-
+                        for (int i = 0; i < attributes.Length; i++)
+                        {
+                            results.Add(rdr[attributes[i]].ToString());
+                        }
                     }
                 }
                 sqlite.Close();
-                return results;
             }
 
+            string[] resultsArray = results.ToArray();
+            return resultsArray;
+
         }
+
     }
 }

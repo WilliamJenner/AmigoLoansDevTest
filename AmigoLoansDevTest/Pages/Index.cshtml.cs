@@ -12,24 +12,18 @@ namespace AmigoLoansDevTest.Pages
 {
     public class IndexModel : PageModel
     {
-        private DataClass _db;
-        public string[] rowsTest = new string[3];
-        public string rows = "";
+        private Logic logic = new Logic();
+        public string[] selectTest;
+        public string[] attributes = { "Name", "Id", "Shift" };
 
         public void OnGet()
         {
-            _db = new DataClass();
-            _db.ConfigTables();
-            rowsTest = _db.SelectQuery();
-            rows = String.Join(" ", rowsTest);
-            
+            selectTest = logic.SelectEngineers();
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
-            
+            return RedirectToPage("./Index");
         }
-
-        
     }
 }
