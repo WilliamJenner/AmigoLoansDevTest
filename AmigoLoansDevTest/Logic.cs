@@ -13,11 +13,18 @@ namespace AmigoLoansDevTest
         private string lastTwoWeeks;
         private string eligibleWorkers;
 
+        /// <summary>
+        /// Class constructor
+        /// </summary>
         public Logic()
         {
 
         }
 
+        /// <summary>
+        /// Selects two random engineers from the database
+        /// </summary>
+        /// <returns>string[] containing both engineers</returns>
         public string[] SelectEngineers()
         {
             string[] engineers = new string[2]; // the system selects two engineers
@@ -31,7 +38,10 @@ namespace AmigoLoansDevTest
             return engineers;
         }
 
-        // Will create a set of data of engineers who meet all the conditions of the system
+        /// <summary>
+        /// Creates a set of engineers from two SQL scripts.
+        /// </summary>
+        /// <returns>string[] containing all data</returns>
         private string[] CreateDataSet()
         {
             string[] attributesTwoWeeks = {"name"};
@@ -75,6 +85,11 @@ namespace AmigoLoansDevTest
             return dataSet;
         }
 
+        /// <summary>
+        /// Will randomly select two values from a given string[].
+        /// </summary>
+        /// <param name="valueSet">string[] that will be selected from</param>
+        /// <returns>string[] containing two random values<returns>
         private string[] RandomlySelectTwoValues(string[] valueSet)
         {
             

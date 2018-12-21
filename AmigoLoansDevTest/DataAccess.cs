@@ -11,16 +11,19 @@ namespace AmigoLoansDevTest
     public class DataAccess
     {
         private SQLiteConnection sqlite;
-        
 
-        //constructor
+        /// <summary>
+        /// Class constructor
+        /// </summary>
         public DataAccess()
         {
             sqlite = new SQLiteConnection("Data Source=DevTestDb.db;Version=3;New=False");
             ConfigTables();
         }
 
-        // Creates the tables if they do not exist
+        /// <summary>
+        /// Creates tables if they do not exist
+        /// </summary>
         public void ConfigTables()
         {
             sqlite.Open();
@@ -46,9 +49,12 @@ namespace AmigoLoansDevTest
             sqlite.Close();
         }
 
-
-        //This method will take in a query, and expected attributes, and then return each result in a list. 
-        //Then converts to an array due to ease of use.
+        /// <summary>
+        /// Queries a database
+        /// </summary>
+        /// <param name="query">String containing an SQL query</param>
+        /// <param name="attributes">The expected attribute(s)/column(s) from the output data</param>
+        /// <returns>A string[] containing all data in left -> right order.</returns>
         public string[] SelectQuery(string query, string[] attributes)
         {
             List<string> results = new List<string>();

@@ -13,12 +13,11 @@ namespace AmigoLoansDevTest.Pages
     public class IndexModel : PageModel
     {
         private Logic logic = new Logic();
-        public string[] selectTest;
-        public string[] attributes = { "Name", "Id", "Shift" };
+        public string[] engineers;
 
         public void OnGet()
         {
-            selectTest = logic.SelectEngineers();
+            engineers = logic.SelectEngineers();
         }
 
         public IActionResult OnPost()
