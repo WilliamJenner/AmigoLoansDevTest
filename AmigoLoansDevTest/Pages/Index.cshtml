@@ -18,17 +18,29 @@
         <tbody>
             <tr>
                 <td>
-                @Model.engineers[0]
+                    @Model.engineers[0]
                 </td>
                 <td>
-                @Model.engineers[1]
+                    @Model.engineers[1]
                 </td>
             </tr>
         </tbody>
     </table>
 
     <form method="post">
-    <button type="submit">Randomly Select!</button>
+        <button type="submit">Randomly Select!</button>
     </form>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <h3>Api access</h3>
+    <p>
+        To access any details about an engineer, just add "/api/[id]" to the end of the url.
+        For example, "localhost:5001/api/5" will return a list with the name of, and every shift, engineer 5 has worked.
+    </p>
 
 }

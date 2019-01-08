@@ -22,7 +22,8 @@ namespace AmigoLoansDevTest.Pages
 
         public IActionResult OnPost()
         {
-            return RedirectToPage("./Index");
+            return RedirectToPage("Index");
         }
+
     }
 }

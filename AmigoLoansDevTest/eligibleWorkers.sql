@@ -6,4 +6,4 @@ FROM engineers,
 		AND (shift BETWEEN date('now','-14 day') AND date('now'))) AS eligible
 WHERE Engineers.Id = eligible.Engineer_Id
 /* Will get a list of all engineers eligible to work 
-(has not worked today already, or yesterday) within the last 2 weeks*/
+(has not worked today already, or yesterday) within the last 2 weeks*/ 

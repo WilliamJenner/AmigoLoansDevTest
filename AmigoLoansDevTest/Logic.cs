@@ -22,6 +22,26 @@ namespace AmigoLoansDevTest
         }
 
         /// <summary>
+        /// Returns all details about an engineer from their ID. This method is called by the API.
+        /// The results list is then formatted.
+        /// </summary>
+        /// <param name="id">id of an engineer within the database.</param>
+        /// <returns>Results list with all details about engineer.</returns>
+        public string APIGetID(string id)
+        {
+            string[] attributes = {"Name","Shift"};
+            string resultString = "";
+            string query = $"SELECT Engineers.Name, Rota.Shift " +
+                           $"FROM engineers, rota " +
+                           $"WHERE Engineers.id = {id}";
+
+            string[] results = database.SelectQuery(query,attributes);
+            resultString = String.Join(";",results);
+
+            return resultString;
+        }
+
+        /// <summary>
         /// Selects two random engineers from the database
         /// </summary>
         /// <returns>string[] containing both engineers</returns>
@@ -39,7 +59,7 @@ namespace AmigoLoansDevTest
         }
 
         /// <summary>
-        /// Creates a set of engineers from two SQL scripts.
+        /// Creates a set of engineers from two SQL scripts. 
         /// </summary>
         /// <returns>string[] containing all data</returns>
         private string[] CreateDataSet()
@@ -107,7 +127,6 @@ namespace AmigoLoansDevTest
             string[] randomValues = { valueSet[a], valueSet[b] };
             return randomValues;
 
-        }
-
+        }  
     }
 }
